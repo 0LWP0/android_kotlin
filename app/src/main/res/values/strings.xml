@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name" translatable="false">Application</string>
+    <string name="tv_true" >确定</string>
+    <string name="tv_cancel" >取消</string>
+    <string name="tv_server">请开启定位服务</string>
+</resources>
