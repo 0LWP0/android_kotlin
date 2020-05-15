@@ -19,6 +19,7 @@ class LocationDialog : DialogFragment() {
         dialog!!.window!!.attributes = params as WindowManager.LayoutParams
         super.onStart()
     }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -32,14 +33,15 @@ class LocationDialog : DialogFragment() {
         tv_sure.setOnClickListener(onClickListener)
         tv_cancel.setOnClickListener(onClickListener)
     }
+
     private val onClickListener = View.OnClickListener {
-        when (it.id){
-            R.id.tv_sure->{
+        when (it.id) {
+            R.id.tv_sure -> {
                 val intent = Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS)
                 startActivity(intent)
             }
 
-            R.id.tv_cancel->{
+            R.id.tv_cancel -> {
 
             }
         }
