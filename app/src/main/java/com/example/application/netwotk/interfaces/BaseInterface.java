@@ -1,4 +1,4 @@
-package com.example.application.netwotk;
+package com.example.application.netwotk.interfaces;
 
 public interface BaseInterface {
 

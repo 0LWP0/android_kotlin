@@ -1,9 +1,11 @@
-package com.example.application
+package com.example.application.adapters
 
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.application.viewholders.BaseViewHolder
+import com.example.application.R
 
 class BaseAdapter(context: Context, list: ArrayList<String>) :
     RecyclerView.Adapter<BaseViewHolder>() {

@@ -1,4 +1,4 @@
-package com.example.application
+package com.example.application.dialogs
 
 import android.os.Bundle
 import android.view.LayoutInflater

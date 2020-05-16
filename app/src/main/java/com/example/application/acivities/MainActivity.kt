@@ -1,4 +1,4 @@
-package com.example.application
+package com.example.application.acivities
 
 import android.Manifest
 import android.content.pm.PackageManager
@@ -20,6 +20,8 @@ import com.amap.api.maps.CameraUpdateFactory
 import com.amap.api.maps.LocationSource
 import com.amap.api.maps.LocationSource.OnLocationChangedListener
 import com.amap.api.maps.model.LatLng
+import com.example.application.R
+import com.example.application.netwotk.presenters.FirstPresenter
 import kotlinx.android.synthetic.main.activity_main.*
 import java.text.SimpleDateFormat
 import java.util.*
@@ -38,13 +40,16 @@ class MainActivity : AppCompatActivity(), LocationSource, AMapLocationListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        map.onCreate(savedInstanceState);
+//        map.onCreate(savedInstanceState);
 
 
-        if (!isLocationEnabled()) {
-            LocationDialog().show(supportFragmentManager, "定位权限弹框")
-        }
-        initMapView();
+//        if (!isLocationEnabled()) {
+//            LocationDialog().show(supportFragmentManager, "定位权限弹框")
+//        }
+//        initMapView();
+        var first = FirstPresenter();
+        first.setUrl("http://t.weather.sojson.com/api/weather/city/101030100")
+        first.sendResponse(emptyMap());
     }
 
     private fun initMapView() {
