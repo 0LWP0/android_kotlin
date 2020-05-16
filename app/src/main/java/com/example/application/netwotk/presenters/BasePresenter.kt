@@ -16,33 +16,33 @@ abstract class BasePresenter<T> {
      * @param url 请求URL
      */
     fun setUrl(url: String?) {
-        baseOkhttp!!.loadUrl(url)
+        baseOkhttp.loadUrl(url)
     }
 
     /**
      * @param  map 发送get请求
      */
     fun sendResponse(map: Map<String, Any>?) {
-        baseOkhttp!!.loadData(map)
+        baseOkhttp.loadData(map)
     }
 
     /**
      * 发送post请求
      */
     fun sendResponse(requestBody: RequestBody?) {
-        baseOkhttp!!.loadData(requestBody)
+        baseOkhttp.loadData(requestBody)
     }
 
     /**
      * 网络请求数据统一回调处理
      */
     private val baseInterface: BaseInterface = object : BaseInterface {
-        override fun BaseSuccessListener(data: String) {
+        override fun BaseSuccessListener(data: String?) {
             //请求成功
             loadSuccessData(JSON.parseObject(data, def))
         }
 
-        override fun BaseErrorListener(info: String) {
+        override fun BaseErrorListener(info: String?) {
             //请求失败
             loadErrorData()
         }
