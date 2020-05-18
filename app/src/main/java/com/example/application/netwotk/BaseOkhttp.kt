@@ -1,10 +1,10 @@
 package com.example.application.netwotk
 
 import android.text.TextUtils
-import android.util.Log
 import com.example.application.netwotk.interfaces.BaseInterface
 import okhttp3.*
 import java.io.IOException
+import java.util.concurrent.TimeUnit
 
 class BaseOkhttp {
     private var mUrl: String? = null
@@ -57,7 +57,6 @@ class BaseOkhttp {
             response: Response
         ) {
             val data = response.body!!.string()
-            Log.i("onResponse", data)
             if (response.isSuccessful) {
                 mBaseInterface!!.BaseSuccessListener(data)
                 //                    if (TextUtils.isEmpty(data)){
@@ -80,6 +79,7 @@ class BaseOkhttp {
         private var mBaseOkhttp: BaseOkhttp? = null
         private val client = OkHttpClient()
         private const val X_RESPONSE_CODE = 200
+
         @JvmStatic
         val instance: BaseOkhttp?
             get() {
@@ -87,6 +87,9 @@ class BaseOkhttp {
                     synchronized(BaseOkhttp::class.java) {
                         if (mBaseOkhttp == null) {
                             mBaseOkhttp = BaseOkhttp()
+                            client.newBuilder()
+                                .callTimeout(40, TimeUnit.MILLISECONDS)
+                                .connectTimeout(40, TimeUnit.MILLISECONDS)
                         }
                     }
                 }

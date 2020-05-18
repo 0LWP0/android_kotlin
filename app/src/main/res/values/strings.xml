@@ -3,4 +3,5 @@
     <string name="tv_true" >确定</string>
     <string name="tv_cancel" >取消</string>
     <string name="tv_server">请开启定位服务</string>
+    <string name="tv_positioning_is_not_on">定位未开启</string>
 </resources>

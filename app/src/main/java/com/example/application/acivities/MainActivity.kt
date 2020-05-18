@@ -35,7 +35,7 @@ class MainActivity : AppCompatActivity(), LocationSource, AMapLocationListener {
     var aMap: AMap? = null
     val empty = emptyList<String>()
     private var isFirstLoc = true
-
+    val first = FirstPresenter();
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -46,8 +46,8 @@ class MainActivity : AppCompatActivity(), LocationSource, AMapLocationListener {
 //        if (!isLocationEnabled()) {
 //            LocationDialog().show(supportFragmentManager, "定位权限弹框")
 //        }
-//        initMapView();
-        var first = FirstPresenter();
+//        initMapView()
+
         first.setUrl("http://t.weather.sojson.com/api/weather/city/101030100")
         first.sendResponse(emptyMap());
     }
